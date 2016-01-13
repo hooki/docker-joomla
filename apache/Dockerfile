@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:5.4.44-apache
 MAINTAINER Michael Babker <michael.babker@joomla.org> (@mbabker)
 
 # Enable Apache Rewrite Module
@@ -13,8 +13,10 @@ RUN docker-php-ext-install mysqli
 VOLUME /var/www/html
 
 # Define Joomla version and expected SHA1 signature
-ENV JOOMLA_VERSION 3.4.8
-ENV JOOMLA_SHA1 0f1237c3a0a50143ef7b6688cda3d4fd0b6196be
+# ENV JOOMLA_VERSION 3.4.8
+# ENV JOOMLA_SHA1 0f1237c3a0a50143ef7b6688cda3d4fd0b6196be
+ENV JOOMLA_VERSION 3.4.5
+ENV JOOMLA_SHA1 098ce53f3bc44531be95c20a0faf7f80efe5fc88
 
 # Download package and extract to web volume
 RUN curl -o joomla.zip -SL https://github.com/joomla/joomla-cms/releases/download/${JOOMLA_VERSION}/Joomla_${JOOMLA_VERSION}-Stable-Full_Package.zip \
